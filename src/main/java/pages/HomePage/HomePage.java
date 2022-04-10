@@ -8,28 +8,40 @@ import pages.commonPage.BasePage;
 public class HomePage extends BasePage {
     private static final Logger LOG = LoggerFactory.getLogger(HomePage.class);
 
-    private final By searchBar = By.id("headersearch");
-    private final By searchButton = By.xpath("//input[@type='submit']");
-    private By pieseAutoButton = By.xpath("//a[@title='piese auto dupa marca']");
-    private By contulMeuButton = By.xpath("//a[@class='dropdown-toggle']");
-    private By loginButton = By.xpath("//a[text()='LOGIN / CONT NOU']");
-    private By marcaDropDown = By.xpath("//select[@name='select_marca']");
-    private By modelDropDown = By.id("model_marca");
-    private By carburantDropDown = By.id("carburant");
-    private By cilindreeDropDown = By.id("cilindree");
-    private By putereDropDown = By.id("motorizari");
-    private By locatiaMagazinSectorTreiButton = By.xpath("//a[@title='magazin piese auto SECTOR 3']");
-    private By searchBarDropdownValue = By.xpath("//div[@id='topsearch']//a[text()='%s']");
+    private final By marcaDropDown = By.xpath("//select[@name='select_marca']");
+    private final By modelDropDown = By.id("model_marca");
+    private final By carburantDropDown = By.id("carburant");
+    private final By cilindreeDropDown = By.id("cilindree");
+    private final By putereDropDown = By.id("motorizari");
+    private static final String dropdownOptionSelect = "//option[text()='%s']";
 
-    public void insertTextIntoSearchBar(String value) {
-        LOG.info("Click on the SearchBar");
-        driver.findElement(searchBar).click();
-        LOG.info("Insert text into SearchBar");
-        driver.findElement(searchBar).sendKeys(value);
+    public void clickMarcaDropDown(){
+        LOG.info("Click on MarcaDropDown");
+        driver.findElement(marcaDropDown).click();
     }
 
-    public void clickSearchButton() {
-        LOG.info("Click on the SearchButton");
-        driver.findElement(searchButton).click();
+    public void clickModelDropDown(){
+        LOG.info("Click on ModelDropDown");
+        driver.findElement(modelDropDown).click();
+    }
+
+    public void clickCarburantDropDown(){
+        LOG.info("Click on CarburantDropDown");
+        driver.findElement(carburantDropDown).click();
+    }
+
+    public void clickCilindreeDropDown(){
+        LOG.info("Click on CilindreeDropDown");
+        driver.findElement(cilindreeDropDown).click();
+    }
+
+    public void clickPutereDropDown() {
+        LOG.info("Click on PutereDropDown");
+        driver.findElement(putereDropDown).click();
+    }
+
+    public void clickDropdownOption(String dropdownOption) {
+        LOG.info("Click on specific dropdown option");
+        driver.findElement(By.xpath(String.format(dropdownOptionSelect, dropdownOption))).click();
     }
 }

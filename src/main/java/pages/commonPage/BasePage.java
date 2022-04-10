@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasePage {
-    private static final Logger LOG = LoggerFactory.getLogger(BasePage.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(BasePage.class);
     public static WebDriver driver;
 
     public static void setUp() {
@@ -16,7 +16,7 @@ public class BasePage {
         String url = "https://www.epiesa.ro/";
         driver.get(url);
         LOG.info("Open browser");
-        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
     }
 
     public static void tearDown() {
